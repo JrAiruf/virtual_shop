@@ -13,11 +13,11 @@ class GetApplicationImagesImpl implements IGetApplicationImages {
   final IGetApplicationImagesRepo imagesRepository;
 
   @override
-  Future<Either<GetImagesErrors, List<ApplicationImages>?>>? call(
+  Future<Either<GetImagesError, List<ApplicationImages>?>>? call(
       String? collection) async {
     if (collection == null || collection.isEmpty) {
       return Left(EmptyClassText());
     }
-    return Future.value(imagesRepository.getImages(collection));
+    return Future.value(imagesRepository.getAllImages(collection));
   }
 }

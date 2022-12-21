@@ -1,3 +1,3 @@
-abstract class GetImagesErrors implements Exception {}
+abstract class GetImagesError implements Exception {}
 
-class EmptyClassText extends GetImagesErrors{}
+class EmptyClassText extends GetImagesError{}

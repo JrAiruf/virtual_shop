@@ -7,7 +7,7 @@ class FirebaseDatabase implements GetImagesDatasource {
   final _dataSource = FirebaseFirestore.instance;
 
   @override
-  Future<List<ResultImagesSearchModel>>? getImages(String? collection) async {
+  Future<List<ResultImagesSearchModel>>? getAllImages(String? collection) async {
     final imageList = await _dataSource.collection(collection ?? '').get();
     if (imageList.docs.isNotEmpty) {
       return imageList.docs

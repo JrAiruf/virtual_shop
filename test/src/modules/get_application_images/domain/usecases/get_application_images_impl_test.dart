@@ -12,13 +12,13 @@ void main() {
   final repository = GetImagesMock();
   final usecase = GetApplicationImagesImpl(imagesRepository: repository);
   test('Should return a List<ApplicationImages>', () async {
-    when(repository.getImages(any))
+    when(repository.getAllImages(any))
         .thenAnswer((_) async => const Right(<ApplicationImages>[]));
     final result = await usecase('collection');
     expect(result! | null, isA<List<ApplicationImages>>());
   });
   test('Should return an Exception', () async {
-    when(repository.getImages(any))
+    when(repository.getAllImages(any))
         .thenAnswer((_) async => const Right(<ApplicationImages>[]));
     var result = await usecase(null);
     expect(result!.isLeft(), true);

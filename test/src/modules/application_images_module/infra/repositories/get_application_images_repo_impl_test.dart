@@ -12,15 +12,15 @@ void main() {
   final datasource = DataSourceMock();
   final repository = GetApplicationImagesRepoImpl(datasource: datasource);
   test('Should return a List<ResultImagesSearchModel>', () async {
-    when(datasource.getImages(any))
+    when(datasource.getAllImages(any))
         .thenAnswer((realInvocation) async => const <ResultImagesSearchModel>[]);
-    final result = await repository.getImages('laranjinha');
+    final result = await repository.getAllImages('laranjinha');
     expect(result! | null, isA<List<ResultImagesSearchModel>>());
   });
   test('Should return a DatasourceError case fail', () async {
-    when(datasource.getImages(any))
+    when(datasource.getAllImages(any))
         .thenThrow(Exception());
-    final result = await repository.getImages('laranjinha');
+    final result = await repository.getAllImages('laranjinha');
     expect(result!.fold(id, id), isA<DatasourceErrors>());
   });
 }

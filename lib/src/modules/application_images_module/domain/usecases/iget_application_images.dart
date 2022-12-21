@@ -3,5 +3,5 @@ import '../entities/application_images_entity.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class IGetApplicationImages {
-  Future<Either<GetImagesErrors, List<ApplicationImages>?>>? call(String? collection);
+  Future<Either<GetImagesError, List<ApplicationImages>?>>? call(String? collection);
 }

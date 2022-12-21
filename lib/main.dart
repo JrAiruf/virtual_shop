@@ -2,11 +2,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:virtual_shop_project/src/app/ij_main_module.dart';
+import 'package:virtual_shop_project/src/modules/application_images_module/presenter/pages/ij_home_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(ModularApp(module: IJMainModule(),
+
+  runApp(ModularApp(
+    module: IJMainModule(),
     child: const IJMainApp(),
   ));
 }
@@ -16,10 +19,13 @@ class IJMainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
+      routerDelegate: Modular.routerDelegate,
+      routeInformationParser: Modular.routeInformationParser,
     );
   }
 }

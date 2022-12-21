@@ -8,9 +8,9 @@ class FirebaseMock extends Mock implements FirebaseDatabase {}
 void main() {
   final datasource = FirebaseMock();
   test('Should return a List<ResultImagesSearchModel>', () async {
-    when(datasource.getImages(any))
+    when(datasource.getAllImages(any))
         .thenAnswer((_) async => <ResultImagesSearchModel>[]);
-    final result = await datasource.getImages('');
+    final result = await datasource.getAllImages('');
     expect(result, isA<List<ResultImagesSearchModel>>());
   });
 }

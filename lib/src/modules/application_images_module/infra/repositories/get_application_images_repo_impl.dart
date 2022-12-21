@@ -14,10 +14,10 @@ class GetApplicationImagesRepoImpl implements IGetApplicationImagesRepo {
   });
   GetImagesDatasource datasource;
   @override
-  Future<Either<GetImagesErrors, List<ApplicationImages>?>>? getImages(
+  Future<Either<GetImagesError, List<ApplicationImages>?>>? getAllImages(
       String? collection) async {
     try {
-      final result = await datasource.getImages(collection);
+      final result = await datasource.getAllImages(collection);
       return Right(result);
     } catch (e) {
       return Left(DatasourceErrors());
