@@ -12,13 +12,13 @@ class GetApplicationImagesRepoImpl implements IGetApplicationImagesRepo {
   GetApplicationImagesRepoImpl({
     required this.datasource,
   });
-  final GetImagesDatasource datasource;
+  GetImagesDatasource datasource;
   @override
   Future<Either<GetImagesErrors, List<ApplicationImages>?>>? getImages(
       String? collection) async {
     try {
       final result = await datasource.getImages(collection);
-      return Future.value(result);
+      return Right(result);
     } catch (e) {
       return Left(DatasourceErrors());
     }

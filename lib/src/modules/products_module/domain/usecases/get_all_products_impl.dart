@@ -1,5 +1,4 @@
 import 'package:virtual_shop_project/src/modules/products_module/domain/entities/products_entities.dart';
-import 'package:virtual_shop_project/src/modules/products_module/domain/entities/categories_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:virtual_shop_project/src/modules/products_module/domain/repositories/iget_products_repo.dart';
 import 'package:virtual_shop_project/src/modules/products_module/errors/empty_product_error.dart';

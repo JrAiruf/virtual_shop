@@ -13,7 +13,7 @@ void main() {
   final repository = GetApplicationImagesRepoImpl(datasource: datasource);
   test('Should return a List<ResultImagesSearchModel>', () async {
     when(datasource.getImages(any))
-        .thenAnswer((realInvocation) async => const Right(<ResultImagesSearchModel>[]));
+        .thenAnswer((realInvocation) async => const <ResultImagesSearchModel>[]);
     final result = await repository.getImages('laranjinha');
     expect(result! | null, isA<List<ResultImagesSearchModel>>());
   });
