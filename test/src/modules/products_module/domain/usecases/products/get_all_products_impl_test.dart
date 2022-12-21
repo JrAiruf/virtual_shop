@@ -32,6 +32,6 @@ void main() {
     when(repository.createProduct(any))
         .thenAnswer((_) async => const Right(<ProductsEntity>[]));
     final result = await usecase.createProduct('id');
-    expect(result! | null, isA<ProductsEntity>());
+    expect(result! | null, isA<List<ProductsEntity>>());
   });
 }
