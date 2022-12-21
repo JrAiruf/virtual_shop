@@ -9,9 +9,7 @@ import 'package:virtual_shop_project/src/modules/application_images_module/prese
 import 'package:virtual_shop_project/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
 
 class IJHome extends StatefulWidget {
-  const IJHome({
-    super.key,
-  });
+  const IJHome({super.key});
 
   @override
   State<IJHome> createState() => _IJHomeState();
@@ -25,7 +23,7 @@ class _IJHomeState extends State<IJHome> {
     super.dispose();
     bloc.close();
   }
-
+  
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

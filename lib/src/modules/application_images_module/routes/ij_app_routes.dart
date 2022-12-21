@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 abstract class IJAppRoutes {
 static const INITIAL = '/initial';
   static const HOME = '/home';
