@@ -6,9 +6,7 @@ import 'package:virtual_shop_project/src/modules/application_images_module/error
 import '../repositories/get_application_images_repo.dart';
 
 class GetApplicationImagesImpl implements IGetApplicationImages {
-  GetApplicationImagesImpl({
-    required this.imagesRepository,
-  });
+  GetApplicationImagesImpl({required this.imagesRepository,});
 
   final IGetApplicationImagesRepo imagesRepository;
 

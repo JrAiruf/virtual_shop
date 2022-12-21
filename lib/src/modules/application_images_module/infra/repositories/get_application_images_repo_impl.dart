@@ -5,7 +5,7 @@ import 'package:virtual_shop_project/src/modules/application_images_module/domai
 import 'package:virtual_shop_project/src/modules/application_images_module/domain/repositories/get_application_images_repo.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/errors/get_images_errors.dart';
 
-import '../../errors/datasource_errors.dart';
+import '../../external/errors/datasource_errors.dart';
 import '../data/get_images_datasource.dart';
 
 class GetApplicationImagesRepoImpl implements IGetApplicationImagesRepo {

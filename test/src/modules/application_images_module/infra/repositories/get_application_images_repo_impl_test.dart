@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:virtual_shop_project/src/modules/application_images_module/errors/datasource_errors.dart';
+import 'package:virtual_shop_project/src/modules/application_images_module/external/errors/datasource_errors.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/infra/data/get_images_datasource.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/infra/models/result_images_search.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/infra/repositories/get_application_images_repo_impl.dart';
