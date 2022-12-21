@@ -3,15 +3,14 @@ import 'package:dartz/dartz.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/domain/entities/application_images_entity.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/domain/usecases/iget_application_images.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/errors/get_images_errors.dart';
-
-import '../repositories/get_application_images_repository.dart';
+import '../repositories/get_application_images_repo.dart';
 
 class GetApplicationImagesImpl implements IGetApplicationImages {
   GetApplicationImagesImpl({
     required this.imagesRepository,
   });
 
-  final GetApplicationImagesRepository imagesRepository;
+  final IGetApplicationImagesRepo imagesRepository;
 
   @override
   Future<Either<GetImagesErrors, List<ApplicationImages>?>>? call(
