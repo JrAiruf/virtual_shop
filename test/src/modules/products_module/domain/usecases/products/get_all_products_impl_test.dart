@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:virtual_shop_project/src/modules/products_module/domain/entities/products_entities.dart';
 import 'package:virtual_shop_project/src/modules/products_module/domain/repositories/iget_products_repo.dart';
-import 'package:virtual_shop_project/src/modules/products_module/domain/usecases/get_all_products_impl.dart';
+import 'package:virtual_shop_project/src/modules/products_module/domain/usecases/products/get_all_products_impl.dart';
 
 class GetProductsMock extends Mock implements IGetProductsRepo{}
 
@@ -29,9 +29,9 @@ void main() {
     expect(result! | null, isA<ProductsEntity>());
   });
    test('Should add a product to List<ProductsEntity>', () async {
-    when(repository.createProductById(any))
+    when(repository.createProduct(any))
         .thenAnswer((_) async => const Right(<ProductsEntity>[]));
-    final result = await usecase.createProductById('id');
+    final result = await usecase.createProduct('id');
     expect(result! | null, isA<ProductsEntity>());
   });
 }

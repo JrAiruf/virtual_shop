@@ -1,4 +1,7 @@
-class ProductsEntity {
+// ignore_for_file: overridden_fields, annotate_overrides
+import 'package:virtual_shop_project/src/modules/products_module/domain/entities/products_entities.dart';
+
+class ProductModel extends ProductsEntity {
   String? productId;
   String? category;
   String? title;
@@ -7,7 +10,7 @@ class ProductsEntity {
   int? price;
   List? size;
 
-  ProductsEntity(
+  ProductModel(
       {this.title,
       this.description,
       this.images,
