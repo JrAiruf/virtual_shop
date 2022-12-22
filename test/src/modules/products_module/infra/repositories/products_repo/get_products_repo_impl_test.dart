@@ -12,25 +12,25 @@ void main() {
   final datasource = ProductDataSourceMock();
   final repository = GetProductsRepoImpl(productsDatasource: datasource);
   test('Should return a List<ProductModel>', () async {
-    when(datasource.deleteProducts(any))
+    when(datasource.deleteProducts(any, any))
         .thenAnswer((_) async => const <ProductModel>[]);
-    final result = await repository.deleteProduct('id');
+    final result = await repository.deleteProduct('id', '');
     expect(result! | null, isA<List<ProductModel>>());
   });
   test('Should return a ProductModuleErrors case fail', () async {
-    when(datasource.deleteProducts(any)).thenThrow(Exception());
-    final result = await repository.deleteProduct('id');
+    when(datasource.deleteProducts(any, any)).thenThrow(Exception());
+    final result = await repository.deleteProduct('id', '');
     expect(result!.fold(id, id), isA<ProductModuleErrors>());
   });
   test('Should return a List<ProductModel> (Get all method)', () async {
-    when(datasource.getAllProducts(any))
+    when(datasource.getAllProducts(any, any))
         .thenAnswer((_) async => const <ProductModel>[]);
-    final result = await repository.getAllProducts('id');
+    final result = await repository.getAllProducts('id', '');
     expect(result! | null, isA<List<ProductModel>>());
   });
   test('Should return a ProductModuleErrors case fail', () async {
-    when(datasource.getAllProducts(any)).thenThrow(Exception());
-    final result = await repository.getAllProducts('');
+    when(datasource.getAllProducts(any, any)).thenThrow(Exception());
+    final result = await repository.getAllProducts('','');
     expect(result!.fold(id, id), isA<ProductModuleErrors>());
   });
   test('Should return a List<ProductModel>', () async {
@@ -45,14 +45,14 @@ void main() {
     expect(result!.fold(id, id), isA<ProductModuleErrors>());
   });
   test('Should return a List<ProductModel>', () async {
-    when(datasource.getProductById(any))
+    when(datasource.getProductById(any, any))
         .thenAnswer((_) async => ProductModel());
-    final result = await repository.getProductById('id');
+    final result = await repository.getProductById('id', '');
     expect(result! | null, isA<ProductModel>());
   });
   test('Should return a ProductModuleErrors case fail', () async {
-    when(datasource.getProductById(any)).thenThrow(Exception());
-    final result = await repository.getProductById('zxvz');
+    when(datasource.getProductById(any, any)).thenThrow(Exception());
+    final result = await repository.getProductById('', '');
     expect(result!.fold(id, id), isA<ProductModuleErrors>());
   });
 }

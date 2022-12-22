@@ -12,30 +12,37 @@ class GetAllProductsImpl implements IGetProducts {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(
-      String? category) async {
+      String? category, products) async {
     if (category == null || category.isEmpty) {
+      if (products == null || products.isEmpty) {
       return Left(EmptyProductError());
+      }
     }
-    return (Future.value(productsRepository.getAllProducts(category)));
+    return (Future.value(productsRepository.getAllProducts(category, products)));
   }
 
   @override
-  Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? deleteProduct(
-      String? productId) async {
-    productsRepository.deleteProduct(productId);
+  Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? deleteProduct(String? category, productId) async {
+    productsRepository.deleteProduct(category,productId);
+    if (category == null || category.isEmpty) {
     if (productId == null || productId.isEmpty) {
-      return Left(ProductNotFound());
+      return Left(ProductNotFound());  
     }
-    return (Future.value(productsRepository.deleteProduct(productId)));
+    
+    }
+    return (Future.value(productsRepository.deleteProduct(category, productId)));
   }
 
   @override
   Future<Either<ProductModuleErrors, ProductsEntity?>>? getProductById(
-      String? productId) async {
+      String?category,  productId) async {
+      if (category == null || category.isEmpty) {
     if (productId == null || productId.isEmpty) {
-      return Left(ProductNotFound());
+      return Left(ProductNotFound());  
     }
-    return (Future.value(productsRepository.getProductById(productId)));
+    
+    }
+    return (Future.value(productsRepository.getProductById(category, productId)));
   }
 
   @override

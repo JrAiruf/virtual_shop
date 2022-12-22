@@ -17,9 +17,9 @@ class GetProductsRepoImpl implements IGetProductsRepo {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? createProduct(
-      Map<String,dynamic>? product, String? collection) async {
+      Map<String,dynamic>? product, String? category) async {
     try {
-      final result = await productsDatasource.createProduct(product, collection!);
+      final result = await productsDatasource.createProduct(product, category!);
       return Right(result);
     } catch (e) {
       return Left(EmptyProductError());
@@ -28,9 +28,9 @@ class GetProductsRepoImpl implements IGetProductsRepo {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? deleteProduct(
-      String? productId) async {
+      String?category, productId) async {
     try {
-      final result = await productsDatasource.deleteProducts(productId);
+      final result = await productsDatasource.deleteProducts(category, productId);
       return Right(result);
     } catch (e) {
       return Left(ProductNotFound());
@@ -39,9 +39,9 @@ class GetProductsRepoImpl implements IGetProductsRepo {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(
-      String? category) async {
+      String? category, productId) async {
     try {
-      final result = await productsDatasource.getAllProducts(category);
+      final result = await productsDatasource.getAllProducts(category, productId);
       return Right(result);
     } catch (e) {
       return Left(ProductNotFound());
@@ -50,9 +50,9 @@ class GetProductsRepoImpl implements IGetProductsRepo {
 
   @override
   Future<Either<ProductModuleErrors, ProductsEntity?>>? getProductById(
-      String? productId) async {
+      String? category, productId) async {
     try {
-      final result = await productsDatasource.getProductById(productId);
+      final result = await productsDatasource.getProductById(category, productId);
       return Right(result);
     } catch (e) {
       return Left(ProductNotFound());
