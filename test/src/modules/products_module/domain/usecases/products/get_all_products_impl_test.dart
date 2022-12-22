@@ -29,9 +29,9 @@ void main() {
     expect(result! | null, isA<ProductsEntity>());
   });
   test('Should add a product to List<ProductsEntity>', () async {
-    when(repository.createProduct(any))
+    when(repository.createProduct(any, any))
         .thenAnswer((_) async => const Right(<ProductsEntity>[]));
-    final result = await usecase.createProduct({"":""});
+    final result = await usecase.createProduct({"":""}, '');
     expect(result! | null, isA<List<ProductsEntity>>());
   });
 }

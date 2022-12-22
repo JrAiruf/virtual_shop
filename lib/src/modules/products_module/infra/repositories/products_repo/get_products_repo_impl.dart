@@ -17,9 +17,9 @@ class GetProductsRepoImpl implements IGetProductsRepo {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? createProduct(
-      Map<String,dynamic>? product) async {
+      Map<String,dynamic>? product, String? collection) async {
     try {
-      final result = await productsDatasource.createProduct(product);
+      final result = await productsDatasource.createProduct(product, collection!);
       return Right(result);
     } catch (e) {
       return Left(EmptyProductError());

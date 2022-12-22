@@ -5,8 +5,8 @@ import '../../infra/models/category_model.dart';
 class FirebaseCategoryDatabase implements GetCategoriesDatasource {
   @override
   Future<List<CategoryModel>>? getAllCategories(String? category) {
-    // TODO: implement getAllCategories
-    throw UnimplementedError();
+    /*   final result = await _database.collection('products').get();
+    return result.docs.map((e) => ProductModel.fromMap(e.data())).toList(); */
   }
 
   @override

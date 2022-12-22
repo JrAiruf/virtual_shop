@@ -40,10 +40,10 @@ class GetAllProductsImpl implements IGetProducts {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? createProduct(
-      Map<String,dynamic>? producData) async {
+      Map<String,dynamic>? producData, String? collection ) async {
     if (producData == null || producData.isEmpty) {
       return Left(ProductNotFound());
     }
-    return Future.value(productsRepository.createProduct(producData));
+    return Future.value(productsRepository.createProduct(producData, collection!));
   }
 }
