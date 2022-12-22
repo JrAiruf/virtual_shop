@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:virtual_shop_project/src/modules/products_module/infra/data/products/get_products_datasource.dart';
+import 'package:virtual_shop/src/modules/products_module/infra/data/products/get_products_datasource.dart';
 
 import '../../infra/models/product_model.dart';
 

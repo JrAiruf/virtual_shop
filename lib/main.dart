@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:virtual_shop_project/src/app/ij_main_module.dart';
+import 'package:virtual_shop/src/app/ij_main_module.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -4,9 +4,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:staggered_grid_view_flutter/widgets/sliver.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:virtual_shop_project/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images__events/ij_get_images_events.dart';
-import 'package:virtual_shop_project/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_bloc.dart';
-import 'package:virtual_shop_project/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
+import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images__events/ij_get_images_events.dart';
+import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_bloc.dart';
+import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
 
 class IJHome extends StatefulWidget {
   const IJHome({super.key});
@@ -23,7 +23,7 @@ class _IJHomeState extends State<IJHome> {
     super.dispose();
     bloc.close();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;

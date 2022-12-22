@@ -1,4 +1,4 @@
-# virtual_shop_project
+# virtual_shop
 
 A new Flutter project.
 

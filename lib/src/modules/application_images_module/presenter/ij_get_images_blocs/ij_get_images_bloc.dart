@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:virtual_shop_project/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
+import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
 import '../../domain/usecases/iget_application_images.dart';
 import 'ij_get_images__events/ij_get_images_events.dart';
 
@@ -13,6 +13,7 @@ class IJGetImagesBloc extends Bloc<IJGetImagesEvents, IJGetImagesStates> {
       InitializeSearch event, Emitter<IJGetImagesStates> emit) async {
     emit(IJLoadingState());
     final result = await usecase.call(event.searchCollection);
-    result?.fold((error) => emit(IJErrorState(error: error)), (list) => emit(IJSucessResultState(imagesList: list)));
+    result?.fold((error) => emit(IJErrorState(error: error)),
+        (list) => emit(IJSucessResultState(imagesList: list)));
   }
 }

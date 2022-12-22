@@ -1,5 +1,5 @@
 // ignore_for_file: overridden_fields, annotate_overrides
-import 'package:virtual_shop_project/src/modules/products_module/domain/entities/products_entities.dart';
+import 'package:virtual_shop/src/modules/products_module/domain/entities/products_entities.dart';
 
 class ProductModel extends ProductsEntity {
   String? productId;
