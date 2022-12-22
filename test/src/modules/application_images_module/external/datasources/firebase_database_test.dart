@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:virtual_shop_project/src/modules/application_images_module/external/data/firebase_database.dart';
+import 'package:virtual_shop_project/src/modules/application_images_module/external/data/firebase_images_database.dart';
 import 'package:virtual_shop_project/src/modules/application_images_module/infra/models/result_images_search.dart';
 
 class FirebaseMock extends Mock implements FirebaseDatabase {}
