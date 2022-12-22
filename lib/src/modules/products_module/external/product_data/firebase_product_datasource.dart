@@ -6,9 +6,10 @@ import '../../infra/models/product_model.dart';
 class FirebaseProductDataBase implements GetProductsDatasource {
   final _database = FirebaseFirestore.instance;
   @override
-  Future<List<ProductModel>>? createProduct(String? category) {
-    // TODO: implement createProduct
-    throw UnimplementedError();
+  Future<List<ProductModel>>? createProduct(
+      Map<String, dynamic>? category) async {
+    final productColecction = await _database.collection('products').get();
+    return <ProductModel>[];
   }
 
   @override

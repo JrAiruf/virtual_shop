@@ -36,12 +36,12 @@ void main() {
   test('Should return a List<ProductModel>', () async {
     when(datasource.createProduct(any))
         .thenAnswer((_) async => const <ProductModel>[]);
-    final result = await repository.createProduct('id');
+    final result = await repository.createProduct({});
     expect(result! | null, isA<List<ProductModel>>());
   });
   test('Should return a ProductModuleErrors case fail', () async {
     when(datasource.createProduct(any)).thenThrow(Exception());
-    final result = await repository.createProduct('asdf');
+    final result = await repository.createProduct({});
     expect(result!.fold(id, id), isA<ProductModuleErrors>());
   });
   test('Should return a List<ProductModel>', () async {

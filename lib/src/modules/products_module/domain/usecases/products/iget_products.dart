@@ -6,5 +6,5 @@ abstract class IGetProducts {
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(String? category);
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? deleteProduct(String? productId);
   Future<Either<ProductModuleErrors, ProductsEntity?>>? getProductById(String? productId);
-  Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? createProduct(String? productId);
+  Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? createProduct(Map<String,dynamic>? productId);
 }

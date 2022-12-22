@@ -33,7 +33,6 @@ class GetAllProductsImpl implements IGetProducts {
   Future<Either<ProductModuleErrors, ProductsEntity?>>? getProductById(
       String? productId) async {
     if (productId == null || productId.isEmpty) {
-      await productsRepository.getProductById(productId);
       return Left(ProductNotFound());
     }
     return (Future.value(productsRepository.getProductById(productId)));
@@ -41,11 +40,10 @@ class GetAllProductsImpl implements IGetProducts {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? createProduct(
-      String? productId) async {
-    if (productId == null || productId.isEmpty) {
-      await productsRepository.createProduct(productId);
+      Map<String,dynamic>? producData) async {
+    if (producData == null || producData.isEmpty) {
       return Left(ProductNotFound());
     }
-    return Future.value(productsRepository.createProduct(productId));
+    return Future.value(productsRepository.createProduct(producData));
   }
 }
