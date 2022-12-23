@@ -14,5 +14,5 @@ class IJErrorState implements IJGetImagesStates {
 
 class IJSucessResultState implements IJGetImagesStates {
   IJSucessResultState({this.imagesList});
-  List<ApplicationImages>? imagesList = [];
+  List<ApplicationImages>? imagesList;
 }

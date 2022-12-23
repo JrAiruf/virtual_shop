@@ -59,16 +59,3 @@ class FirebaseProductDataBase implements GetProductsDatasource {
     return ProductModel.fromMap(result.data());
   }
 }
-
-
-/*  final productData = _database
-        .collection('products')
-        .doc(category)
-        .collection('items')
-        .doc();
-    productData.set(product!);
-    final list = await _database
-        .collection('products')
-        .doc(category)
-        .collection('items').add(product);
-     */

@@ -13,12 +13,12 @@ class IJGetProductState implements IJProductsStates {}
 class IJCreateProductState implements IJProductsStates {
   IJCreateProductState( {this.product, this.productList});
   ProductsEntity? product;
-  List<ProductsEntity>? productList = [];
+  List<ProductsEntity>? productList;
 }
 
 class IJGetAllProductsState implements IJProductsStates {
   IJGetAllProductsState({this.products});
-  List<ProductsEntity>? products = [];
+  List<ProductsEntity>? products;
 }
 
 class IJErrorProductState implements IJProductsStates {

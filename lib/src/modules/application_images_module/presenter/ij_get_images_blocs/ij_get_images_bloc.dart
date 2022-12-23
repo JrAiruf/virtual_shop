@@ -12,7 +12,7 @@ class IJGetImagesBloc extends Bloc<IJGetImagesEvents, IJGetImagesStates> {
   void _mapInitializeSearchToState(
       InitializeSearch event, Emitter<IJGetImagesStates> emit) async {
     emit(IJLoadingState());
-    final result = await usecase.call(event.searchCollection);
+    final result = await usecase(event.searchCollection);
     result?.fold((error) => emit(IJErrorState(error: error)),
         (list) => emit(IJSucessResultState(imagesList: list)));
   }

@@ -5,6 +5,7 @@ import 'package:virtual_shop/src/modules/products_module/infra/models/product_mo
 import 'package:virtual_shop/src/modules/products_module/presenter/products/ij_products_bloc/ij_products_bloc.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/products/ij_products_bloc/ij_products_events/ij_products_events.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/products/ij_products_bloc/ij_products_states/ij_products_states.dart';
+import 'package:virtual_shop/src/routes/ij_app_routes.dart';
 
 class IJProductScreen extends StatelessWidget {
   IJProductScreen({super.key});
@@ -78,6 +79,13 @@ class IJProductScreen extends StatelessWidget {
                                 ),
                               );
                             }),
+                      ),
+                      FloatingActionButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushNamed(IJAppRoutes.CATEGORIES);
+                        },
+                        child: const Icon(Icons.library_add),
                       )
                     ],
                   );
