@@ -24,10 +24,10 @@ void main() {
     expect(result, isA<List<ProductModel>>());
   });
   test('Should return a List<ProductModel>', () async {
-    when(database.getAllProducts(any, any))
+    when(database.getAllProducts(any))
         .thenAnswer((_) async => <ProductModel>[]);
 
-    final result = await database.getAllProducts('', '');
+    final result = await database.getAllProducts('');
 
     expect(result, isA<List<ProductModel>>());
   });

@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:virtual_shop/src/modules/products_module/domain/repositories/iget_products_repo.dart';
 import 'package:virtual_shop/src/modules/products_module/errors/empty_product_error.dart';
 import 'package:virtual_shop/src/modules/products_module/errors/product_errors.dart';
-
 import 'iget_products.dart';
 
 class GetAllProductsImpl implements IGetProducts {
@@ -12,13 +11,11 @@ class GetAllProductsImpl implements IGetProducts {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(
-      String? category, products) async {
+      String? category) async {
     if (category == null || category.isEmpty) {
-      if (products == null || products.isEmpty) {
       return Left(EmptyProductError());
-      }
     }
-    return (Future.value(productsRepository.getAllProducts(category, products)));
+    return (Future.value(productsRepository.getAllProducts(category)));
   }
 
   @override

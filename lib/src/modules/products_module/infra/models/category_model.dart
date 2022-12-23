@@ -8,11 +8,13 @@ class CategoryModel extends CategoryEntity {
   String? id;
   String? title;
   String? icon;
+  List? items;
 
   CategoryModel({
     this.id,
     this.title,
     this.icon,
+    this.items,
   });
 
   Map<String, dynamic> toMap() {
@@ -20,6 +22,7 @@ class CategoryModel extends CategoryEntity {
       'id': id,
       'title': title,
       'icon': icon,
+      'items': items,
     };
   }
 
@@ -28,6 +31,7 @@ class CategoryModel extends CategoryEntity {
       id: map['id'] != null ? map['id'] as String : null,
       title: map['title'] != null ? map['title'] as String : null,
       icon: map['icon'] != null ? map['icon'] as String : null,
+      items: map['items'],
     );
   }
 

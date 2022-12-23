@@ -39,9 +39,9 @@ class GetProductsRepoImpl implements IGetProductsRepo {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(
-      String? category, productId) async {
+      String? category) async {
     try {
-      final result = await productsDatasource.getAllProducts(category, productId);
+      final result = await productsDatasource.getAllProducts(category);
       return Right(result);
     } catch (e) {
       return Left(ProductNotFound());

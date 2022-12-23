@@ -2,8 +2,6 @@
 abstract class IJGetImagesEvents {}
 
 class InitializeSearch implements IJGetImagesEvents {
+  InitializeSearch({this.searchCollection});
   String? searchCollection;
-  InitializeSearch({
-    this.searchCollection,
-  });
 }
