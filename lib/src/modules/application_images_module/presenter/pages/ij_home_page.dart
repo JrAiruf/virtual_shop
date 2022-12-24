@@ -7,7 +7,7 @@ import 'package:transparent_image/transparent_image.dart';
 import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images__events/ij_get_images_events.dart';
 import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_bloc.dart';
 import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
-import 'package:virtual_shop/src/routes/ij_app_routes.dart';
+import '../../../products_module/layout/components/ij_drawer.dart';
 
 class IJHome extends StatelessWidget {
   IJHome({super.key});
@@ -19,13 +19,8 @@ class IJHome extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
+      drawer: IJDrawerComponent(),
       appBar: AppBar(
-        title: IconButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed(IJAppRoutes.PRODUCTS);
-          },
-          icon: const Icon(Icons.list),
-        ),
         actions: [
           IconButton(
             onPressed: () {

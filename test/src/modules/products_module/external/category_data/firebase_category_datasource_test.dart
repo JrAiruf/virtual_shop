@@ -8,10 +8,10 @@ class DBCategoryMock extends Mock implements FirebaseCategoryDatabase {}
 void main() {
   final database = DBCategoryMock();
   test('Should return a List<CategoryModel>', () async {
-    when(database.getAllCategories(any))
+    when(database.getAllCategories())
         .thenAnswer((_) async => <CategoryModel>[]);
 
-    final result = await database.getAllCategories('');
+    final result = await database.getAllCategories();
 
     expect(result, isA<List<CategoryModel>>());
   });

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter_modular/flutter_modular.dart';
 import '../domain/repositories/get_application_images_repo.dart';
 import '../domain/usecases/get_application_images_impl.dart';

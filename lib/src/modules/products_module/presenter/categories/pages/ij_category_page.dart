@@ -36,58 +36,81 @@ class IJCategoryPage extends StatelessWidget {
           ),
         ],
       ),
-      body: SizedBox(
-        child: BlocBuilder(
-            bloc: bloc,
-            builder: (_, __) {
-              final categoryState = bloc.state;
-              if (categoryState is IJErrorCategoryState) {
-                return const Center(child: Icon(Icons.error));
-              }
-              if (categoryState is IJLoadingCategoryState) {
-                return const Center(child: CircularProgressIndicator());
-              }
-              if (categoryState is IJGetCategoryState) {
-                return Column(
-                  children: [
-                    SizedBox(
-                      height: 650,
-                      child: ListView.builder(
-                          itemCount: categoryState.categories!.length,
-                          itemBuilder: (_, index) {
-                            return ListTile(
-                              trailing: ConstrainedBox(
-                                constraints:
-                                    BoxConstraints.loose(const Size(95, 30)),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(categoryState.categories![0].title!),
-                                    const Icon(Icons.arrow_right)
-                                  ],
-                                ),
-                              ),
-                              leading: SizedBox(
-                                height: height * 0.075,
-                                width: width * 0.139,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(35),
-                                  child: Image.network(
-                                    categoryState.categories![0].icon!,
-                                    fit: BoxFit.cover,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: Stack(
+          children: [
+            _buildBodyBack(),
+            BlocBuilder(
+                bloc: bloc,
+                builder: (_, __) {
+                  final categoryState = bloc.state;
+                  if (categoryState is IJErrorCategoryState) {
+                    return const Center(child: Icon(Icons.error));
+                  }
+                  if (categoryState is IJLoadingCategoryState) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (categoryState is IJLoadCategoryState) {
+                    return Column(
+                      children: [
+                        SizedBox(
+                          height: 650,
+                          child: ListView.builder(
+                              itemCount: categoryState.categories!.length,
+                              itemBuilder: (_, index) {
+                                return ListTile(
+                                  trailing: ConstrainedBox(
+                                    constraints: BoxConstraints.loose(
+                                        const Size(95, 30)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(categoryState
+                                            .categories![0].title!),
+                                        const Icon(Icons.arrow_right)
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ),
-                            );
-                          }),
-                    )
-                  ],
-                );
-              }
-              return Container();
-            }),
+                                  leading: SizedBox(
+                                    height: height * 0.075,
+                                    width: width * 0.139,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(35),
+                                      child: Image.network(
+                                        categoryState.categories![0].icon!,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }),
+                        )
+                      ],
+                    );
+                  }
+                  return Container();
+                }),
+          ],
+        ),
       ),
     );
   }
+}
+
+Widget _buildBodyBack() {
+  return Container(
+    decoration: const BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Colors.white,
+          Colors.white,
+          Colors.grey,
+        ],
+      ),
+    ),
+  );
 }

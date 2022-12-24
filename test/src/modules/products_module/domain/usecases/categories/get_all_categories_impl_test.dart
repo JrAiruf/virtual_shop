@@ -11,9 +11,9 @@ void main() {
   final repository = GetProductsMock();
   final usecase = GetAllCategoriesImpl(categoriesRepo: repository);
   test('Should return a List<CategoryEntity>', () async {
-    when(repository.getAllCategories(any))
+    when(repository.getAllCategories())
         .thenAnswer((_) async => const Right(<CategoryEntity>[]));
-    final result = await usecase.getAllCategories('category');
+    final result = await usecase.getAllCategories();
     expect(result! | null, isA<List<CategoryEntity>>());
   });
   test('Should return a CategoryEntity', () async {

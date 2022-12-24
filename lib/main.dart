@@ -7,10 +7,12 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  runApp(ModularApp(
-    module: IJMainModule(),
-    child: const IJMainApp(),
-  ));
+  runApp(
+    ModularApp(
+      module: IJMainModule(),
+      child: const IJMainApp(),
+    ),
+  );
 }
 
 class IJMainApp extends StatelessWidget {

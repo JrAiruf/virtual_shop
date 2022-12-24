@@ -7,3 +7,5 @@ class IJSelectCategoryEvent extends IJCategoryEvents {
   IJSelectCategoryEvent({this.category});
   CategoryModel? category;
 }
+
+class IJLoadCategoryEvent extends IJCategoryEvents {}

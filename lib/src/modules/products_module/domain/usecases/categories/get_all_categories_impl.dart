@@ -14,8 +14,8 @@ class GetAllCategoriesImpl implements IGetAllCategories {
   IGetCategoriesRepo categoriesRepo;
   @override
   Future<Either<ProductModuleErrors, List<CategoryEntity>?>>? getAllCategories(
-      String? category) async {
-    return Future.value(categoriesRepo.getAllCategories(category));
+       ) async {
+    return Future.value(categoriesRepo.getAllCategories());
   }
 
   @override

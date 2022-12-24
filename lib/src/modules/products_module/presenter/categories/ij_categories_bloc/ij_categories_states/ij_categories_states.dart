@@ -8,13 +8,17 @@ class IJInitialCategoryState extends IJCategoryStates {}
 
 class IJLoadingCategoryState extends IJCategoryStates {}
 
+class IJLoadCategoryState extends IJCategoryStates {
+  IJLoadCategoryState({this.categories});
+  List<CategoryEntity>? categories;
+}
+
 class IJErrorCategoryState extends IJCategoryStates {
   IJErrorCategoryState({required this.error});
   final ProductModuleErrors error;
 }
 
 class IJGetCategoryState extends IJCategoryStates {
-  IJGetCategoryState({this.categories, this.category});
+  IJGetCategoryState({this.category});
   CategoryEntity? category;
-  List<CategoryEntity>? categories;
 }

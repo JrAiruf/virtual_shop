@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_shop/src/modules/products_module/errors/empty_product_error.dart';
 import 'package:virtual_shop/src/modules/products_module/infra/data/categories/get_categories_datasource.dart';
@@ -8,7 +6,7 @@ import '../../infra/models/category_model.dart';
 class FirebaseCategoryDatabase implements GetCategoriesDatasource {
   final _database = FirebaseFirestore.instance;
   @override
-  Future<List<CategoryModel>>? getAllCategories(String? category) async {
+  Future<List<CategoryModel>>? getAllCategories() async {
     final result = await _database.collection('products').get();
     if (result.docs.isNotEmpty) {
       return result.docs

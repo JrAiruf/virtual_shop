@@ -12,14 +12,14 @@ void main() {
   final datasource = CategoryDataSourceMock();
   final repository = GetCategoriesRepoImpl(categoriesDatasource: datasource);
   test('Should return a List<CategoryModel> (Get all method)', () async {
-    when(datasource.getAllCategories(any))
+    when(datasource.getAllCategories())
         .thenAnswer((_) async => const <CategoryModel>[]);
-    final result = await repository.getAllCategories('id');
+    final result = await repository.getAllCategories();
     expect(result! | null, isA<List<CategoryModel>>());
   });
   test('Should return a ProductModuleErrors case fail', () async {
-    when(datasource.getAllCategories(any)).thenThrow(Exception());
-    final result = await repository.getAllCategories('');
+    when(datasource.getAllCategories()).thenThrow(Exception());
+    final result = await repository.getAllCategories();
     expect(result!.fold(id, id), isA<ProductModuleErrors>());
   });
 

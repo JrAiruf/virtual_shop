@@ -13,10 +13,10 @@ class GetCategoriesRepoImpl implements IGetCategoriesRepo {
 
   GetCategoriesDatasource categoriesDatasource;
   @override
-  Future<Either<ProductModuleErrors, List<CategoryEntity>?>>? getAllCategories(
-      String? category) async {
+  Future<Either<ProductModuleErrors, List<CategoryEntity>?>>?
+      getAllCategories() async {
     try {
-      final result = await categoriesDatasource.getAllCategories(category);
+      final result = await categoriesDatasource.getAllCategories();
       return Right(result);
     } catch (e) {
       return Left(CategoryError());
