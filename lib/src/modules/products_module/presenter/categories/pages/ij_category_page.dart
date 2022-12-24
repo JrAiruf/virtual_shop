@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:virtual_shop/src/modules/products_module/infra/models/category_model.dart';
+import 'package:virtual_shop/src/modules/products_module/layout/components/ij_drawer.dart';
+import 'package:virtual_shop/src/modules/products_module/layout/ij_enums/ij_drawer_enum.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_bloc.dart';
-import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_events/ij_categories_events.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_states/ij_categories_states.dart';
 
 class IJCategoryPage extends StatelessWidget {
@@ -26,16 +27,8 @@ class IJCategoryPage extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              bloc.add(IJSelectCategoryEvent(category: category));
-            },
-            icon: const Icon(Icons.list),
-          ),
-        ],
-      ),
+      drawer: IJDrawerComponent(position: IJDrawerPosition.categories),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
         child: Stack(

@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:virtual_shop/src/modules/application_images_module/domain/entities/application_images_entity.dart';
-import 'package:virtual_shop/src/modules/application_images_module/domain/repositories/get_application_images_repo.dart';
-import 'package:virtual_shop/src/modules/application_images_module/domain/usecases/get_application_images_impl.dart';
-import 'package:virtual_shop/src/modules/application_images_module/errors/get_images_errors.dart';
+import 'package:virtual_shop/src/modules/home_module/domain/entities/application_images_entity.dart';
+import 'package:virtual_shop/src/modules/home_module/domain/repositories/iget_application_images_repo.dart';
+import 'package:virtual_shop/src/modules/home_module/domain/usecases/get_application_images_impl.dart';
+import 'package:virtual_shop/src/modules/home_module/errors/get_images_errors.dart';
 
 class GetImagesMock extends Mock implements IGetApplicationImagesRepo {}
 

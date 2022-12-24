@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:virtual_shop/src/modules/application_images_module/domain/entities/application_images_entity.dart';
-import 'package:virtual_shop/src/modules/application_images_module/domain/usecases/iget_application_images.dart';
-import 'package:virtual_shop/src/modules/application_images_module/errors/get_images_errors.dart';
-import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images__events/ij_get_images_events.dart';
-import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_bloc.dart';
-import 'package:virtual_shop/src/modules/application_images_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
+import 'package:virtual_shop/src/modules/home_module/domain/entities/application_images_entity.dart';
+import 'package:virtual_shop/src/modules/home_module/domain/usecases/iget_application_images.dart';
+import 'package:virtual_shop/src/modules/home_module/errors/get_images_errors.dart';
+import 'package:virtual_shop/src/modules/home_module/presenter/ij_get_images_blocs/ij_get_images__events/ij_get_images_events.dart';
+import 'package:virtual_shop/src/modules/home_module/presenter/ij_get_images_blocs/ij_get_images_bloc.dart';
+import 'package:virtual_shop/src/modules/home_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
 
 class GetImagesMock extends Mock implements IGetApplicationImages {}
 

@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:virtual_shop/src/modules/products_module/layout/ij_enums/ij_drawer_enum.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_bloc.dart';
+import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_events/ij_categories_events.dart';
 import 'package:virtual_shop/src/routes/ij_app_routes.dart';
 import '../../domain/entities/categories_entity.dart';
 import '../commons/ij_drawer_tile.dart';
 
 class IJDrawerComponent extends StatelessWidget {
-  IJDrawerComponent({Key? key, this.position}) : super(key: key);
+  IJDrawerComponent({Key? key, required this.position}) : super(key: key);
 
   final bloc = Modular.get<IJCategoriesBloc>();
   CategoryEntity? category;
-  IJDrawerPosition? position;
+  final IJDrawerPosition position;
 
   @override
   Widget build(BuildContext context) {
@@ -65,61 +66,111 @@ class IJDrawerComponent extends StatelessWidget {
                   IJDrawerTile(
                     name: 'Página Inicial',
                     onTap: () => IJNavigation.home(context),
-                    position: position ?? IJDrawerPosition.home,
+                    position: position,
                     icon: Icons.home_outlined,
                     width: 150,
                     height: 75,
-                    primaryColor: Colors.black,
-                    seccundaryColor: Colors.grey,
+                    iconColor: Colors.black,
+                    backgroundColor: Colors.white,
+                    primaryColor: position == IJDrawerPosition.home
+                        ? Colors.black
+                        : Colors.white,
+                    seccundaryColor: position == IJDrawerPosition.home
+                        ? Colors.white
+                        : Colors.black,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   IJDrawerTile(
                     name: 'Categorias',
-                    onTap: () => IJNavigation.categories(context),
-                    position: position ?? IJDrawerPosition.categories,
+                    onTap: () {
+                      bloc.add(IJLoadCategoryEvent());
+                      IJNavigation.categories(context);
+                    },
+                    position: position,
                     icon: Icons.list_alt,
                     width: 150,
                     height: 75,
-                    primaryColor: Colors.black,
-                    seccundaryColor: Colors.grey,
+                    iconColor: Colors.black,
+                    backgroundColor: Colors.white,
+                    primaryColor: position == IJDrawerPosition.categories
+                        ? Colors.black
+                        : Colors.white,
+                    seccundaryColor: position == IJDrawerPosition.categories
+                        ? Colors.white
+                        : Colors.black,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  IJDrawerTile(
+                  /*     IJDrawerTile(
                     name: 'Meu Carrinho',
-                    position: position ?? IJDrawerPosition.cart,
+                    position: position,
                     icon: Icons.shopping_cart_outlined,
                     width: 150,
                     height: 75,
-                    primaryColor: Colors.black,
-                    seccundaryColor: Colors.grey,
+                    primaryColor:
+                    position == IJDrawerPosition.cart ? Colors.black : null,
+                    seccundaryColor:
+                    position == IJDrawerPosition.cart ? Colors.grey : null,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   IJDrawerTile(
                     name: 'Favoritos',
-                    position: position ?? IJDrawerPosition.favorites,
+                    position: position,
                     icon: Icons.star_border,
                     width: 150,
                     height: 75,
-                    primaryColor: Colors.black,
-                    seccundaryColor: Colors.grey,
+                    primaryColor:
+                    position == IJDrawerPosition.favorites ? Colors.black : null,
+                    seccundaryColor:
+                    position == IJDrawerPosition.favorites ? Colors.grey : null,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   IJDrawerTile(
                     name: 'Lojas Próximas',
-                    position: position ?? IJDrawerPosition.nearbyStores,
+                    position: position,
                     icon: Icons.shop_two_outlined,
                     width: 150,
                     height: 75,
-                    primaryColor: Colors.black,
-                    seccundaryColor: Colors.grey,
+                    primaryColor:
+                    position == IJDrawerPosition.nearbyStores ? Colors.black : null,
+                    seccundaryColor:
+                    position == IJDrawerPosition.nearbyStores ? Colors.grey : null,
+                  ), */
+                  const SizedBox(
+                    height: 75,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Row(
+                      children: const [
+                        Icon(
+                          Icons.exit_to_app_outlined,
+                          size: 35,
+                          color: Colors.black,
+                        ),
+                        SizedBox(
+                          width: 60,
+                        ),
+                        Text(
+                          'Sair',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.black,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

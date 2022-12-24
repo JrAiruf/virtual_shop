@@ -10,8 +10,9 @@ class IJDrawerTile extends StatelessWidget {
       this.name,
       this.height,
       this.width,
-      this.primaryColor,
-      this.seccundaryColor});
+      required this.primaryColor,
+      required this.seccundaryColor,
+      required this.backgroundColor, required this.iconColor});
 
   final IconData? icon;
   final IJDrawerPosition position;
@@ -19,8 +20,10 @@ class IJDrawerTile extends StatelessWidget {
   final String? name;
   final double? height;
   final double? width;
-  final Color? primaryColor;
-  final Color? seccundaryColor;
+  final Color primaryColor;
+  final Color seccundaryColor;
+  final Color backgroundColor;
+  final Color iconColor;
   @override
   Widget build(BuildContext context) {
     final widthStandard = MediaQuery.of(context).size.width;
@@ -31,7 +34,7 @@ class IJDrawerTile extends StatelessWidget {
         decoration: BoxDecoration(
           color: primaryColor,
           gradient: LinearGradient(
-            colors: [seccundaryColor!, primaryColor!],
+            colors: [backgroundColor, primaryColor],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -47,7 +50,7 @@ class IJDrawerTile extends StatelessWidget {
                 Icon(
                   icon,
                   size: 35,
-                  color: primaryColor,
+                  color: iconColor,
                 ),
                 SizedBox(
                   width: widthStandard * 0.1,

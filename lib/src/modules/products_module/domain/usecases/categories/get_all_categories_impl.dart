@@ -21,8 +21,8 @@ class GetAllCategoriesImpl implements IGetAllCategories {
   @override
   Future<Either<ProductModuleErrors, CategoryEntity?>>? getCategoryById(
       String? categoryId) async {
-    if (categoryId == null || categoryId.isEmpty) {
       await categoriesRepo.getCategoryById(categoryId);
+    if (categoryId == null || categoryId.isEmpty) {
       return Left(CategoryError());
     }
     return (Future.value(categoriesRepo.getCategoryById(categoryId)));
