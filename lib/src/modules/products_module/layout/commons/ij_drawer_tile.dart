@@ -9,7 +9,9 @@ class IJDrawerTile extends StatelessWidget {
       required this.position,
       this.name,
       this.height,
-      this.width});
+      this.width,
+      this.primaryColor,
+      this.seccundaryColor});
 
   final IconData? icon;
   final IJDrawerPosition position;
@@ -17,25 +19,59 @@ class IJDrawerTile extends StatelessWidget {
   final String? name;
   final double? height;
   final double? width;
-
+  final Color? primaryColor;
+  final Color? seccundaryColor;
   @override
   Widget build(BuildContext context) {
     final widthStandard = MediaQuery.of(context).size.width;
     final heightStandard = MediaQuery.of(context).size.height;
     return InkWell(
       onTap: onTap,
-      child: SizedBox(
+      child: Container(
+        decoration: BoxDecoration(
+          color: primaryColor,
+          gradient: LinearGradient(
+            colors: [seccundaryColor!, primaryColor!],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
         width: width ?? widthStandard * 0.1,
         height: height ?? heightStandard * 0.06,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon),
-            SizedBox(
-              width: widthStandard * 0.45,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Icon(
+                  icon,
+                  size: 35,
+                  color: primaryColor,
+                ),
+                SizedBox(
+                  width: widthStandard * 0.1,
+                ),
+                Text(
+                  name ?? '',
+                  style: TextStyle(
+                      color: seccundaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
+                Icon(
+                  Icons.keyboard_arrow_right,
+                  color: seccundaryColor,
+                ),
+              ],
             ),
-            Text(name ?? ''),
-            const Icon(Icons.keyboard_arrow_right),
+            const SizedBox(
+              height: 10,
+            ),
+            Divider(
+              color: seccundaryColor,
+              height: 2,
+            )
           ],
         ),
       ),
