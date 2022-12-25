@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:virtual_shop/src/modules/products_module/layout/ij_enums/ij_drawer_enum.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_bloc.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_events/ij_categories_events.dart';
-import 'package:virtual_shop/src/routes/ij_app_routes.dart';
+import 'package:virtual_shop/src/modules/routes/ij_app_routes.dart';
 import '../../domain/entities/categories_entity.dart';
 import '../commons/ij_drawer_tile.dart';
 

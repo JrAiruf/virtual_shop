@@ -29,7 +29,4 @@ class IJCategoriesBloc extends Bloc<IJCategoryEvents, IJCategoryStates> {
         (r) => emit(IJGetCategoryState(category: r)));
   }
 
-  Future<void> loadCategories() async {
-    await _usecase.getAllCategories();
-  }
 }

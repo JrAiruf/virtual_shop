@@ -12,7 +12,7 @@ void main() {
   final repository = CreateUserMock();
   final usecase = CreateUserRepoImpl(repository: repository);
   test('Should Create a User (return UserEntity)', () async {
-    when(repository.createUser(any))
+    when(repository.createUser(any, any, any))
         .thenAnswer((_) async => Right(UserEntity()));
 
     final result = await usecase.createUser(

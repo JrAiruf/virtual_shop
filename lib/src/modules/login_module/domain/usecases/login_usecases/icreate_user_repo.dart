@@ -7,5 +7,5 @@ import '../../entities/user_entity.dart';
 
 abstract class ICreateUserRepo {
   Future<Either<LoginError, UserEntity?>>? createUser(
-      {@required UserModel? user,});
+      {@required UserModel? user, Function()? onSuccess, onFail});
 }

@@ -1,7 +1,5 @@
 // ignore_for_file: constant_identifier_names
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 abstract class IJAppRoutes {
   static const INITIAL = '/';
@@ -18,22 +16,33 @@ abstract class IJAppRoutes {
 abstract class IJNavigation {
   static home(BuildContext context) {
     Navigator.of(context).pop();
-    Navigator.of(context).pushNamed(Modular.initialRoute);
-  }
+    Navigator.of(context).pushNamed(IJAppRoutes.HOME);
+  }  
+
   static categories(BuildContext context) {
     Navigator.of(context).pop();
     Navigator.of(context).pushNamed(IJAppRoutes.CATEGORIES);
   }
+
   static cart(BuildContext context) {
     Navigator.of(context).pop();
     Navigator.of(context).pushNamed(IJAppRoutes.CATEGORIES);
   }
+
   static favorites(BuildContext context) {
     Navigator.of(context).pop();
     Navigator.of(context).pushNamed(IJAppRoutes.CATEGORIES);
   }
+
   static nearbyStores(BuildContext context) {
     Navigator.of(context).pop();
     Navigator.of(context).pushNamed(IJAppRoutes.CATEGORIES);
   }
+}
+
+
+abstract class IJLoginNavigation {
+  static newUserHome(BuildContext context, {Object? args}) =>
+      Navigator.of(context)
+          .pushReplacementNamed(IJAppRoutes.HOME, arguments: args);
 }

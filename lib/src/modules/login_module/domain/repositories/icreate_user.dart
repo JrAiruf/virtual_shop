@@ -5,5 +5,9 @@ import '../../errors/login_errors/login_errors.dart';
 import '../entities/user_entity.dart';
 
 abstract class ICreateUser {
-  Future<Either<LoginError, UserEntity?>>? createUser(UserModel? user);
+  Future<Either<LoginError, UserEntity?>>? createUser(
+    UserModel? user,
+    Function()? onSuccess,
+    Function()? onFail,
+  );
 }

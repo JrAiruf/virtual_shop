@@ -10,11 +10,11 @@ class IJTextFieldComponent extends StatelessWidget {
       this.obscureText,
       this.controller,
       this.input,
-      this.onSave,
+      this.onSaved,
       this.textColor,
       this.radius,
       this.hint,
-      this.label});
+      this.label, this.validator, this.onValidate});
 
   final IconData? icon;
   final IconData? suffixIcon;
@@ -22,7 +22,9 @@ class IJTextFieldComponent extends StatelessWidget {
   final Color? textColor;
   final double? radius;
   final void Function()? onPressed;
-  final void Function()? onSave;
+  final void Function()? onValidate;
+  final String? Function(String?)? validator;
+  final void Function(String?)? onSaved;
   final bool? obscureText;
   final TextEditingController? controller;
   final TextInputType? input;
@@ -32,6 +34,8 @@ class IJTextFieldComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(obscureText: obscureText ?? false,
+    onSaved: onSaved,
+    validator: validator,
       style: TextStyle(color: primaryColor ?? Colors.white),
       decoration: InputDecoration(
         labelStyle: TextStyle(color: primaryColor ?? Colors.white),

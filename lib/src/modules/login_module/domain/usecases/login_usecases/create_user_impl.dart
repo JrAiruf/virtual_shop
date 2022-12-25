@@ -11,14 +11,15 @@ class CreateUserRepoImpl implements ICreateUserRepo {
   });
 
   final ICreateUser repository;
+
   @override
   Future<Either<LoginError, UserEntity?>>? createUser(
-      {UserModel? user, Function? onFail, Function? onSuccess}) async {
+      {UserModel? user, Function()? onSuccess, onFail}) async {
     if (user == null) {
-      onFail!();
+      onFail;
       return Left(UserError(error: 'Login Error'));
     }
-    onSuccess!();
-    return (Future.value(repository.createUser(user)));
+    onSuccess;
+    return (Future.value(repository.createUser(user, onSuccess, onFail)));
   }
 }

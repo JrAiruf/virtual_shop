@@ -25,9 +25,7 @@ class UserModel extends UserEntity {
     return <String, dynamic>{
       'id': id,
       'name': name,
-      'email': email,
-      'password': password,
-      'confirmPassword': confirmPassword,
+      'email': email,        
       'adress': adress,
       'seccondName': seccondName,
     };

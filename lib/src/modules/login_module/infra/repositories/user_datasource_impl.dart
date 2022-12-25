@@ -9,16 +9,17 @@ import '../data/user_datasource.dart';
 class UserDatasourceRepoImpl implements ICreateUser {
   UserDatasourceRepoImpl({required this.dataSource});
   final IUserDataSource dataSource;
-  
+
   @override
-  Future<Either<LoginError, UserEntity?>>? createUser(UserModel? user) async {
-      try {
-      final result = await dataSource.createUser(user);
-      return Right(result!);
+  Future<Either<LoginError, UserEntity?>>? createUser(
+      UserModel? user, Function()? onSuccess, Function()? onFail) async {
+    try {
+      final result = await dataSource.createUser(user, onSuccess, onFail);
+      onSuccess;
+      return Right(result);
     } catch (e) {
-      throw Left(UserError(error: 'Erro'));
+      onFail;
+      throw Left(UserError(error: e.toString()));
     }
   }
-  
-
 }

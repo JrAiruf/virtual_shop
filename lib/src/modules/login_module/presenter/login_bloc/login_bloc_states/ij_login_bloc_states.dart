@@ -1,6 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:virtual_shop/src/modules/login_module/domain/entities/user_entity.dart';
+
 abstract class IJLoginBlocStates {}
+
 class IJNoUserState extends IJLoginBlocStates {}
+
+class IJLoadingUserState extends IJLoginBlocStates {}
+
 class IJCreateUserState extends IJLoginBlocStates {}
-class IJSignInState extends IJLoginBlocStates {}
+
+class IJGetUserState extends IJLoginBlocStates {
+  IJGetUserState({required this.user});
+  final UserEntity user;
+}
+
+class IJUserErrorState extends IJLoginBlocStates {
+  IJUserErrorState({this.errorMessage});
+  final String? errorMessage;
+}
+
 class IJSignUpState extends IJLoginBlocStates {}
+
 class IJLogOutState extends IJLoginBlocStates {}
