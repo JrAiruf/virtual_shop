@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../infra/models/user_model.dart';
-
 class IJLoginController {
   TextEditingController nameField = TextEditingController();
   TextEditingController seccondNameField = TextEditingController();
@@ -10,8 +8,8 @@ class IJLoginController {
   TextEditingController confirmPasswordField = TextEditingController();
   TextEditingController adressField = TextEditingController();
 
-  
-  UserModel? user;
+  TextEditingController userEmailField = TextEditingController();
+  TextEditingController userPasswordField = TextEditingController();
 
   String? nameValidate(String? value) {
     if (value!.isNotEmpty && value != '') {
@@ -34,15 +32,8 @@ class IJLoginController {
     return 'Senha Inválida! Sua Senha deve ter pelo menos 8 dígitos';
   }
 
-  String? confirmPasswordValidate(String? value) {
-    if (value!.isNotEmpty && value != '' && value == user!.password) {
-      return value;
-    }
-    return 'Senha Inválida! Sua Senha deve ter pelo menos 8 dígitos';
-  }
-
   String? adressValidate(String? value) {
-    if (value!.isNotEmpty && value != '') {
+    if (value!.isNotEmpty && value != '' && value != ' ') {
       return value;
     }
     return 'Endereço Inválido';

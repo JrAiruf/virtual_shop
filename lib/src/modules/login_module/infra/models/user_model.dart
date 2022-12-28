@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, overridden_fields, annotate_overrides
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:virtual_shop/src/modules/login_module/domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity {
@@ -21,11 +22,31 @@ class UserModel extends UserEntity {
     this.seccondName,
   });
 
+  bool validUser() {
+    return (name != null &&
+        name != '' &&
+        email != null &&
+        email != '' &&
+        password != null &&
+        password != '' /* &&
+        confirmPassword != null &&
+        confirmPassword != '' &&
+        confirmPassword == password &&
+        adress != null &&
+        adress != '' &&
+        seccondName != null &&
+        seccondName != '' */);
+  }
+
+  bool validUserLogin() {
+    return (email != null && email != '' && password != null && password != '');
+  }
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
       'name': name,
-      'email': email,        
+      'email': email,
       'adress': adress,
       'seccondName': seccondName,
     };
@@ -43,6 +64,17 @@ class UserModel extends UserEntity {
       adress: map['adress'] != null ? map['adress'] as String : null,
       seccondName:
           map['seccondName'] != null ? map['seccondName'] as String : null,
+    );
+  }
+  factory UserModel.fromDocumentSnapshot(DocumentSnapshot docSnapshot) {
+    return UserModel(
+      id: docSnapshot['id'],
+      name: docSnapshot['name'],
+      email: docSnapshot['email'],
+      password: docSnapshot['password'],
+      confirmPassword: docSnapshot['confirmPassword'],
+      adress: docSnapshot['adress'],
+      seccondName: docSnapshot['seccondName'],
     );
   }
 

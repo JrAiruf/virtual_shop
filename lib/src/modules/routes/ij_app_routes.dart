@@ -13,11 +13,11 @@ abstract class IJAppRoutes {
   static const CARTPRODUCTS = '/cartProducts';
 }
 
-abstract class IJNavigation {
-  static home(BuildContext context) {
-    Navigator.of(context).pop();
-    Navigator.of(context).pushNamed(IJAppRoutes.HOME);
-  }  
+abstract class IJGeneralNavigation {
+  static home({BuildContext? context, Object? args}) {
+    Navigator.of(context!).pop();
+    Navigator.of(context).pushNamed(IJAppRoutes.HOME, arguments: args);
+  }
 
   static categories(BuildContext context) {
     Navigator.of(context).pop();
@@ -40,9 +40,12 @@ abstract class IJNavigation {
   }
 }
 
-
 abstract class IJLoginNavigation {
   static newUserHome(BuildContext context, {Object? args}) =>
       Navigator.of(context)
           .pushReplacementNamed(IJAppRoutes.HOME, arguments: args);
+  static createUser(BuildContext context) =>
+      Navigator.of(context).pushNamed(
+        IJAppRoutes.CREATEACCOUNT,
+      );
 }

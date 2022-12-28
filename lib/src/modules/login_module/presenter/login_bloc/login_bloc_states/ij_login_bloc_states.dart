@@ -3,14 +3,25 @@ import 'package:virtual_shop/src/modules/login_module/domain/entities/user_entit
 
 abstract class IJLoginBlocStates {}
 
+class IJInitialState extends IJLoginBlocStates {}
 class IJNoUserState extends IJLoginBlocStates {}
 
-class IJLoadingUserState extends IJLoginBlocStates {}
+class IJLoadingUserState extends IJLoginBlocStates {
+  IJLoadingUserState({this.user});
+  final UserEntity? user;
+}
+class IJGotgUserState extends IJLoginBlocStates {
+  IJGotgUserState({this.user});
+  final UserEntity? user;
+}
 
-class IJCreateUserState extends IJLoginBlocStates {}
+class IJCreatingUserState extends IJLoginBlocStates {
+  IJCreatingUserState({this.user});
+  final UserEntity? user;
+}
 
-class IJGetUserState extends IJLoginBlocStates {
-  IJGetUserState({required this.user});
+class IJSignInState extends IJLoginBlocStates {
+  IJSignInState({required this.user});
   final UserEntity user;
 }
 

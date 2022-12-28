@@ -22,12 +22,13 @@ class IJCategoryPage extends StatelessWidget {
         "https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=600",
   );
   final bloc = Modular.get<IJCategoriesBloc>();
+  final user = Modular.args;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: IJDrawerComponent(position: IJDrawerPosition.categories),
+      drawer: IJDrawerComponent(position: IJDrawerPosition.categories,myUser: user.data),
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.only(top: 20),

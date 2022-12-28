@@ -5,15 +5,18 @@ import 'package:virtual_shop/src/modules/products_module/layout/ij_enums/ij_draw
 import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_bloc.dart';
 import 'package:virtual_shop/src/modules/products_module/presenter/categories/ij_categories_bloc/ij_categories_events/ij_categories_events.dart';
 import 'package:virtual_shop/src/modules/routes/ij_app_routes.dart';
+import '../../../login_module/domain/entities/user_entity.dart';
 import '../../domain/entities/categories_entity.dart';
 import '../commons/ij_drawer_tile.dart';
 
 class IJDrawerComponent extends StatelessWidget {
-  IJDrawerComponent({Key? key, required this.position}) : super(key: key);
+  IJDrawerComponent({Key? key, required this.position, this.myUser})
+      : super(key: key);
 
   final bloc = Modular.get<IJCategoriesBloc>();
   CategoryEntity? category;
   final IJDrawerPosition position;
+  final UserEntity? myUser;
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +47,16 @@ class IJDrawerComponent extends StatelessWidget {
                       height: height * 0.2,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
+                        children: [
+                          const Text(
                             'IJ Store',
                             style: TextStyle(
                                 fontWeight: FontWeight.w500, fontSize: 40),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                           Text(
-                            'Olá, Júnior!',
-                            style: TextStyle(
+                            'Olá, ${myUser!.name}!',
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w500, fontSize: 20),
                           ),
                         ],
@@ -65,7 +68,7 @@ class IJDrawerComponent extends StatelessWidget {
                   ),
                   IJDrawerTile(
                     name: 'Página Inicial',
-                    onTap: () => IJNavigation.home(context),
+                    onTap: () => IJGeneralNavigation.home(context: context),
                     position: position,
                     icon: Icons.home_outlined,
                     width: 150,
@@ -86,7 +89,7 @@ class IJDrawerComponent extends StatelessWidget {
                     name: 'Categorias',
                     onTap: () {
                       bloc.add(IJLoadCategoryEvent());
-                      IJNavigation.categories(context);
+                      IJGeneralNavigation.categories(context);
                     },
                     position: position,
                     icon: Icons.list_alt,

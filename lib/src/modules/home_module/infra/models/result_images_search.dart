@@ -34,6 +34,15 @@ class ResultImagesSearchModel extends ApplicationImages {
     );
   }
 
+  static ApplicationImages aplicationImages(Map<String, dynamic> map) {
+    return ApplicationImages(
+      position: map['position'],
+      url: map['url'],
+      xAxis: map['xAxis'],
+      yAxis: map['yAxis'],
+    );
+  }
+
   String toJson() => json.encode(toMap());
 
   factory ResultImagesSearchModel.fromJson(String source) =>

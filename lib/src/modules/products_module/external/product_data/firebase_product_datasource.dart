@@ -44,7 +44,7 @@ class FirebaseProductDataBase implements GetProductsDatasource {
     if (result.docs.isNotEmpty) {
       return result.docs.map((e) => ProductModel.fromMap(e.data())).toList();
     } else {
-      throw DatasourceErrors();
+      throw DatasourceErrors(messageError: 'Erro');
     }
   }
 
