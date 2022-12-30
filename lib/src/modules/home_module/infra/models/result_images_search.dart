@@ -4,12 +4,14 @@ import 'dart:convert';
 import '../../domain/entities/application_images_entity.dart';
 
 class ResultImagesSearchModel extends ApplicationImages {
+  final int? id;
   final String? url;
   final int? xAxis;
   final int? yAxis;
   final int? position;
 
   ResultImagesSearchModel({
+    this.id,
     this.url,
     this.xAxis,
     this.yAxis,
@@ -18,6 +20,7 @@ class ResultImagesSearchModel extends ApplicationImages {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'url': url,
       'xAxis': xAxis,
       'yAxis': yAxis,
@@ -27,6 +30,7 @@ class ResultImagesSearchModel extends ApplicationImages {
 
   factory ResultImagesSearchModel.fromMap(Map<String, dynamic> map) {
     return ResultImagesSearchModel(
+      id: map['id'] != null ? map['id'] as int : null,
       url: map['url'] != null ? map['url'] as String : null,
       xAxis: map['xAxis'] != null ? map['xAxis'] as int : null,
       yAxis: map['yAxis'] != null ? map['yAxis'] as int : null,
@@ -36,6 +40,7 @@ class ResultImagesSearchModel extends ApplicationImages {
 
   static ApplicationImages aplicationImages(Map<String, dynamic> map) {
     return ApplicationImages(
+      id: map['id'],
       position: map['position'],
       url: map['url'],
       xAxis: map['xAxis'],

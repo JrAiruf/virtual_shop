@@ -5,7 +5,7 @@ import '../../infra/data/get_images_datasource.dart';
 class GetHomeImagesDatabase implements GetImagesDatasource {
   GetHomeImagesDatabase({CLientService? httpService}): _httpService = httpService!;
 
-static const imagesUrl = 'http://192.168.0.102:4466/images';
+static const _imagesUrl = 'http://192.168.0.101:4466/images';
 
   final CLientService _httpService;
 
@@ -13,7 +13,7 @@ static const imagesUrl = 'http://192.168.0.102:4466/images';
   Future<List<ResultImagesSearchModel>>? getAllImages() async {
     final list = <ResultImagesSearchModel>[];
     final imagesList =
-        await _httpService.get(imagesUrl);
+        await _httpService.get(_imagesUrl);
     for (final map in imagesList.data) {
       final images = ResultImagesSearchModel.fromMap(map);
       list.add(images);

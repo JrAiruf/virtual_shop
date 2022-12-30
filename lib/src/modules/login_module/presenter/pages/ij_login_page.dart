@@ -130,23 +130,6 @@ class IJLoginPage extends StatelessWidget {
                                 backgroundColor: Colors.grey,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 35),
-                              child: IJLargeButton(
-                                onPressed: () async {
-                                  final api = ApiLoginDatasource(httpService: DioService(dio: Dio()));
-                                  final result = await api.getUserData();
-
-                                  print(result!.data);
-                                },
-                                width: width,
-                                height: 65,
-                                buttonName: 'Printar',
-                                fontSize: 20,
-                                nameColor: Colors.white,
-                                backgroundColor: Colors.grey,
-                              ),
-                            ),
                           ],
                         ),
                       ),

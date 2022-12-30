@@ -4,16 +4,16 @@ import 'dart:convert';
 
 import 'package:virtual_shop/src/modules/products_module/domain/entities/categories_entity.dart';
 
-class CategoryModel extends CategoryEntity {
+class CategoryModel implements CategoryEntity {
   String? id;
   String? title;
-  String? icon;
+  String? iconimage;
   List? items;
 
   CategoryModel({
     this.id,
     this.title,
-    this.icon,
+    this.iconimage,
     this.items,
   });
 
@@ -21,7 +21,7 @@ class CategoryModel extends CategoryEntity {
     return <String, dynamic>{
       'id': id,
       'title': title,
-      'icon': icon,
+      'iconimage': iconimage,
       'items': items,
     };
   }
@@ -30,7 +30,7 @@ class CategoryModel extends CategoryEntity {
     return CategoryModel(
       id: map['id'] != null ? map['id'] as String : null,
       title: map['title'] != null ? map['title'] as String : null,
-      icon: map['icon'] != null ? map['icon'] as String : null,
+      iconimage: map['iconimage'] != null ? map['iconimage'] as String : null,
       items: map['items'],
     );
   }

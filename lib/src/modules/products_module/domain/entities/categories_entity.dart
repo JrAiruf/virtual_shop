@@ -2,13 +2,13 @@
 class CategoryEntity {
   String? id;
   String? title;
-  String? icon;
+  String? iconimage;
   List? items;
   
   CategoryEntity({
     this.id,
     this.title,
-    this.icon,
+    this.iconimage,
     this.items,
   });
 }

@@ -13,15 +13,19 @@ class GetAllCategoriesImpl implements IGetAllCategories {
 
   IGetCategoriesRepo categoriesRepo;
   @override
-  Future<Either<ProductModuleErrors, List<CategoryEntity>?>>? getAllCategories(
-       ) async {
-    return Future.value(categoriesRepo.getAllCategories());
+  Future<Either<ProductModuleErrors, List<CategoryEntity>?>>?
+      getAllCategories() async {
+    final result = await categoriesRepo.getAllCategories();
+    if (result != null) {
+      return Future.value(categoriesRepo.getAllCategories());
+    }
+    return Left(CategoryError());
   }
 
   @override
   Future<Either<ProductModuleErrors, CategoryEntity?>>? getCategoryById(
       String? categoryId) async {
-      await categoriesRepo.getCategoryById(categoryId);
+    await categoriesRepo.getCategoryById(categoryId);
     if (categoryId == null || categoryId.isEmpty) {
       return Left(CategoryError());
     }
