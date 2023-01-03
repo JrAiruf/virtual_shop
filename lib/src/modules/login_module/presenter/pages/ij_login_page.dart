@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:virtual_shop/src/modules/login_module/external/api_login_datasource.dart';
 import 'package:virtual_shop/src/modules/login_module/infra/models/user_model.dart';
 import 'package:virtual_shop/src/modules/login_module/layout/components/ij_large_button.dart';
 import 'package:virtual_shop/src/modules/login_module/layout/components/ij_text_field_component.dart';
@@ -12,7 +10,6 @@ import 'package:virtual_shop/src/modules/login_module/presenter/controller/ij_lo
 import 'package:virtual_shop/src/modules/login_module/presenter/login_bloc/ij_login_bloc.dart';
 import 'package:virtual_shop/src/modules/login_module/presenter/login_bloc/login_bloc_events/ij_login_bloc_events.dart';
 import 'package:virtual_shop/src/modules/routes/ij_app_routes.dart';
-import 'package:virtual_shop/src/modules/services/client_service.dart';
 
 class IJLoginPage extends StatelessWidget {
   IJLoginPage({super.key});

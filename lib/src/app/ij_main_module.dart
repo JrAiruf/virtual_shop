@@ -3,19 +3,17 @@ import 'package:virtual_shop/src/modules/home_module/dependencies/appImagesDepen
 import 'package:virtual_shop/src/modules/home_module/presenter/pages/ij_home_page.dart';
 import 'package:virtual_shop/src/modules/login_module/presenter/pages/ij_login_page.dart';
 import 'package:virtual_shop/src/modules/login_module/presenter/pages/ij_signup_page.dart';
-import 'package:virtual_shop/src/modules/products_module/presenter/categories/pages/ij_category_page.dart';
+import '../modules/categories_and_products_module/dependencies/ijcategories_and_products_dependencies.dart';
+import '../modules/categories_and_products_module/presenter/pages/ij_category_page.dart';
 import '../modules/login_module/dependencies/login_dependencies.dart';
-import '../modules/products_module/dependencies/category_module_dependencies.dart';
-import '../modules/products_module/dependencies/product_module_dependencies.dart';
-import '../modules/products_module/presenter/products/pages/ijproduct_page.dart';
+import '../modules/categories_and_products_module/presenter/pages/ijproduct_page.dart';
 import '../modules/routes/ij_app_routes.dart';
 
 class IJMainModule extends Module {
   @override
   List<Bind> get binds => [
         ...AppImagesDependencies.dependencies,
-        ...ProductModuleDependencies.dependencies,
-        ...CategoryModuleDependencies.dependencies,
+        ...IJCategoriesAndProducts.dependencies,
         ...LoginDependencies.dependencies,
       ];
 

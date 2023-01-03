@@ -4,14 +4,14 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 
-abstract class CLientService {
+abstract class ClientService {
   Future<Response> get(String path);
   Future<Response> post({String path, Map<String, dynamic> body, headers});
   Future<Response> put(String path);
   Future<Response> delete(String path);
 }
 
-class DioService implements CLientService {
+class DioService implements ClientService {
   DioService({required this.dio});
   final Dio dio;
   @override

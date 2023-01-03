@@ -8,10 +8,10 @@ import 'package:virtual_shop/src/modules/services/client_service.dart';
 import '../infra/data/iuser_login_datasource.dart';
 
 class ApiLoginDatasource implements IUserLoginDatasource {
-  ApiLoginDatasource({required CLientService? httpService})
+  ApiLoginDatasource({required ClientService? httpService})
       : _httpService = httpService!;
 
-  final CLientService _httpService;
+  final ClientService _httpService;
 
   @override
   Future<void>? createUser(

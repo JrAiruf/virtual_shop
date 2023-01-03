@@ -14,7 +14,7 @@ import '../presenter/ij_get_images_blocs/ij_get_images_bloc.dart';
 abstract class AppImagesDependencies extends Module {
   static final List<Bind> dependencies = <Bind>[
     Bind<Dio>(((i) => Dio())),
-    Bind<CLientService>((i) => DioService(dio: i())),
+    Bind<ClientService>((i) => DioService(dio: i())),
     Bind<GetImagesDatasource>((i) => GetHomeImagesDatabase(httpService: i())),
     Bind<IGetApplicationImagesRepo>((i) => GetApplicationImagesRepoImpl(datasource: i())),
     Bind<IGetApplicationImages>((i) => GetApplicationImagesImpl(imagesRepository: i())),

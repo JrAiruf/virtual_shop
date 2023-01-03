@@ -13,7 +13,7 @@ import '../presenter/controller/ij_login_controller.dart';
 abstract class LoginDependencies extends Module {
   static final List<Bind> dependencies = <Bind>[
     Bind<Dio>(((i) => Dio())),
-    Bind<CLientService>((i) => DioService(dio: i())),
+    Bind<ClientService>((i) => DioService(dio: i())),
     Bind<IUserLoginDatasource>((i) => ApiLoginDatasource(httpService: i())),
     Bind<IUserLogin>((i) => UserLoginRepoImpl(datasource: i())),
     Bind<IUserLoginCases>((i) => UserLoginCasesImpl(repository: i())),

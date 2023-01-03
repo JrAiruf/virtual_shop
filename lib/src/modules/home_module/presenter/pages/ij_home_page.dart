@@ -8,8 +8,8 @@ import 'package:virtual_shop/src/modules/home_module/presenter/ij_get_images_blo
 import 'package:virtual_shop/src/modules/home_module/presenter/ij_get_images_blocs/ij_get_images_bloc.dart';
 import 'package:virtual_shop/src/modules/home_module/presenter/ij_get_images_blocs/ij_get_images_states/ij_get_images_states.dart';
 import 'package:virtual_shop/src/modules/login_module/presenter/login_bloc/login_bloc_states/ij_login_bloc_states.dart';
-import '../../../products_module/layout/components/ij_drawer.dart';
-import '../../../products_module/layout/ij_enums/ij_drawer_enum.dart';
+import '../../../categories_and_products_module/layout/components/ij_drawer.dart';
+import '../../../categories_and_products_module/layout/ij_enums/ij_drawer_enum.dart';
 
 class IJHome extends StatelessWidget {
   IJHome({super.key});
