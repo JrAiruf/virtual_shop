@@ -24,10 +24,9 @@ class IJCategoriesProductsImpl implements ICategoriesProductsRepo {
   }
 
   @override
-  Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(
-      String? category) async {
+  Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts({CategoryEntity? category}) async {
     try {
-      final result = await datasource.getAllProducts(category);
+      final result = await datasource.getAllProducts(category:category!);
       return Right(result);
     } catch (e) {
       return Left(ProductNotFound());

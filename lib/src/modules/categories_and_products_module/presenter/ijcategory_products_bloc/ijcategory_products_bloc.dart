@@ -17,6 +17,7 @@ class IJCategoriesProductsBloc
 
   void _mapGetAllCategoriesEventToState(IJLoadCategoryEvent event,
       Emitter<IJCategoriesAndProductsStates> emit) async {
+    emit(IJLoadingCategoryState());
     final result = await usecase.getAllCategories()!;
     result.fold((error) => IJErrorCategoryState(error: CategoryError()),
         (list) => emit(IJLoadCategoryState(categories: list)));
@@ -24,8 +25,8 @@ class IJCategoriesProductsBloc
 
   void _mapGetAllProductsToState(IJGetAllProductsEvent event,
       Emitter<IJCategoriesAndProductsStates> emit) async {
-    emit(IJGetAllProductsState());
-    final result = await usecase.getAllProducts(event.category);
+    emit(IJLoadingProductsState());
+    final result = await usecase.getAllProducts(category: event.category);
     result?.fold((error) => emit(IJErrorProductState(error: error)),
         (list) => emit(IJGetAllProductsState(products: list)));
   }

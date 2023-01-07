@@ -87,7 +87,6 @@ class UserLoginDatabase implements IUserLoginDatasource {
       final snapshot =
           await _database.collection('users').doc(_firebaseUser!.uid).get();
       _userApp = UserModel.fromDocumentSnapshot(snapshot);
-      print(_userApp!.name);
     }
     throw SignInError();
   }

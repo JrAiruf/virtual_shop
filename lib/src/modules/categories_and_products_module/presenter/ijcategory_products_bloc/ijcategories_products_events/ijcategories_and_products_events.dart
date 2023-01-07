@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:virtual_shop/src/modules/categories_and_products_module/domain/entities/categories_entity.dart';
 import 'package:virtual_shop/src/modules/categories_and_products_module/infra/models/category_model.dart';
 
 import '../../../infra/models/product_model.dart';
@@ -22,7 +23,7 @@ class IJGetProductEvent implements IJCategoryAndProductsEvents {}
 
 class IJGetAllProductsEvent implements IJCategoryAndProductsEvents {
   IJGetAllProductsEvent({required this.category});
-  String? category;
+  CategoryEntity? category;
 }
 
 class IJDeleteProductEvent implements IJCategoryAndProductsEvents {}

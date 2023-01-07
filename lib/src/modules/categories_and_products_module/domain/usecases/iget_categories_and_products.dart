@@ -5,7 +5,7 @@ import '../entities/products_entities.dart';
 
 abstract class IGetCategoriesAndProducts {
   Future<Either<ProductModuleErrors, List<CategoryEntity>?>>? getAllCategories();
-   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(String? category);
+   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts({CategoryEntity? category});
   Future<Either<ProductModuleErrors, ProductsEntity?>>? getProductById(String? category, String? productId);
 Future<Either<ProductModuleErrors, CategoryEntity?>>? getCategoryById(String? categoryId);
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? createProduct(Map<String,dynamic>? product, String? category);

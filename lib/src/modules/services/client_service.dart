@@ -34,7 +34,6 @@ class DioService implements ClientService {
     final result = await Dio()
         .post(path, options: Options(headers: headers), data: bodyJson);
     if (result.statusCode == 200) {
-      print('okay');
       return result.data;
     }
     throw Exception();

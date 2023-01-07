@@ -1,12 +1,12 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
 class CategoryEntity {
-  String? id;
+  String? categoryid;
   String? title;
   String? iconimage;
   List? items;
   
   CategoryEntity({
-    this.id,
+    this.categoryid,
     this.title,
     this.iconimage,
     this.items,

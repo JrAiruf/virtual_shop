@@ -1,11 +1,7 @@
 import 'package:virtual_shop/src/modules/categories_and_products_module/errors/product_errors.dart';
-
 import 'package:virtual_shop/src/modules/categories_and_products_module/domain/entities/products_entities.dart';
-
 import 'package:virtual_shop/src/modules/categories_and_products_module/domain/entities/categories_entity.dart';
-
 import 'package:dartz/dartz.dart';
-
 import '../../errors/category_error.dart';
 import '../repositories/icategories_products_repo.dart';
 import 'iget_categories_and_products.dart';
@@ -27,9 +23,12 @@ class GetProductsAndCategories implements IGetCategoriesAndProducts {
 
   @override
   Future<Either<ProductModuleErrors, List<ProductsEntity>?>>? getAllProducts(
-      String? category) {
-    // TODO: implement getAllProducts
-    throw UnimplementedError();
+      {CategoryEntity? category}) async {
+    final result = await repository.getAllProducts(category: category!);
+    if (result != null) {
+      return Future.value(repository.getAllProducts(category: category));
+    }
+    return Left(CategoryError());
   }
 
   @override

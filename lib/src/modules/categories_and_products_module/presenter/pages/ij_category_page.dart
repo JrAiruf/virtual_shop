@@ -10,11 +10,12 @@ import '../ijcategory_products_bloc/ijcategories_products_events/ijcategories_an
 import '../ijcategory_products_bloc/ijcategory_products_bloc.dart';
 
 class IJCategoryPage extends StatelessWidget {
-  IJCategoryPage({super.key});
+  IJCategoryPage({super.key}) {
+    bloc.add(IJLoadCategoryEvent());
+  }
 
   final bloc = Modular.get<IJCategoriesProductsBloc>();
   final user = Modular.args;
-  final product = Modular.args;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -32,11 +33,11 @@ class IJCategoryPage extends StatelessWidget {
                 bloc: bloc,
                 builder: (_, __) {
                   final categoryState = bloc.state;
-                  if (categoryState is IJErrorCategoryState) {
-                    return const Center(child: Icon(Icons.error));
-                  }
                   if (categoryState is IJLoadingCategoryState) {
                     return const Center(child: CircularProgressIndicator());
+                  }
+                  if (categoryState is IJErrorCategoryState) {
+                    return const Center(child: Icon(Icons.error));
                   }
                   if (categoryState is IJLoadCategoryState) {
                     return Column(
@@ -53,15 +54,11 @@ class IJCategoryPage extends StatelessWidget {
                                           vertical: 5),
                                       child: ListTile(
                                         onTap: (() {
-                                          bloc.add(
-                                            IJGetAllProductsEvent(
-                                              category: categoryState
-                                                  .categories![index].title,
-                                            ),
+                                          Navigator.of(context).pushReplacementNamed(
+                                            IJAppRoutes.PRODUCTS,
+                                            arguments: categoryState
+                                                .categories![index],
                                           );
-                                          Navigator.of(context).pushNamed(
-                                              IJAppRoutes.PRODUCTS,
-                                              arguments: product);
                                         }),
                                         trailing: ConstrainedBox(
                                           constraints: BoxConstraints.loose(

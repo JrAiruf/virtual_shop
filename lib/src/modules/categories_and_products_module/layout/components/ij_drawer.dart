@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:virtual_shop/src/modules/categories_and_products_module/layout/ij_enums/ij_drawer_enum.dart';
-import 'package:virtual_shop/src/modules/categories_and_products_module/presenter/ijcategory_products_bloc/ijcategories_products_events/ijcategories_and_products_events.dart';
 import 'package:virtual_shop/src/modules/routes/ij_app_routes.dart';
 import '../../../login_module/domain/entities/user_entity.dart';
 import '../../domain/entities/categories_entity.dart';
@@ -89,7 +88,6 @@ class IJDrawerComponent extends StatelessWidget {
                   IJDrawerTile(
                     name: 'Categorias',
                     onTap: () {
-                      categoriesBloc.add(IJLoadCategoryEvent());
                       IJGeneralNavigation.categories(context);
                     },
                     position: position,
